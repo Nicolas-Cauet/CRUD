@@ -1,6 +1,12 @@
 @base = http://localhost:5000
 
-### Ajout d'un raccourci
+### Accès raccourci
+GET {{base}}/horizon
+###
+GET {{base}}/stackoverflow
+
+
+### Création d'un raccourci
 
 POST {{base}}/horizon
 Content-Type: application/json
@@ -9,9 +15,8 @@ Content-Type: application/json
     "target": "https://store.steampowered.com/app/1151640/Horizon_Zero_Dawn_Complete_Edition/",
     "password": "aloy4ever"
 }
-### Accès au raccourci via le navigateur (ctrl+clic) http://localhost:5000/horizon
 
-### Ajout d'un raccourci
+### Création d'un raccourci
 
 POST {{base}}/stackoverflow
 Content-Type: application/json
@@ -21,11 +26,18 @@ Content-Type: application/json
     "password": "stackoverflow"
 }
 
-### Accès au raccourci via le navigateur (ctrl+clic) http://localhost:5000/stackoverflow
+### Mise à jour du raccourci
+PUT  {{base}}/horizon
+Content-Type: application/json
+
+{
+    "target": "https://www.playstation.com/fr-fr/games/horizon-zero-dawn/",
+    "password": "playstation"
+}
 
 ### Suppression du raccourci
 
 DELETE {{base}}/horizon?password=aloy4ever
 
-###
+### Suppression du raccourci
 DELETE {{base}}/stackoverflow?password=stackoverflow

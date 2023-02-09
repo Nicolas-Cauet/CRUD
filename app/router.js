@@ -8,6 +8,8 @@ router.get('/:suffix', osuController.access);
 
 router.post('/:suffix', osuController.create);
 
+router.put('/:suffix',osuController.update);
+
 router.delete('/:suffix', osuController.delete);
 
 // en dernier ressort

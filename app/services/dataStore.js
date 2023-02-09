@@ -46,6 +46,11 @@ class DataStore extends HandlerError {
     }
   }
 
+  async update(suffix,target, password){
+    const newShortLink = await db.query("UPDATE shortlink SET target=$1, password=$2 WHERE target=$3",[target,password,suffix]);
+    console.log(await newShortLink);
+  }
+
   async has(suffix) {
     const { rowCount } = await db.query(
       "SELECT id FROM shortlink WHERE suffix=$1",
